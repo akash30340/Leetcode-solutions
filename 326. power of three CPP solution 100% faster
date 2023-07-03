@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isPowerOfThree(int n) 
+    {
+        int i;
+        long long sum;
+        if(n<=0)
+        return false;
+        for(i=0;i<=n/2;i++)
+        {
+            sum=pow(3,i);
+             if(sum==n)
+             break;
+             else
+             {
+                 if(sum>n)
+                 return false;
+             }
+        }
+        return true;
+        
+    }
+};
