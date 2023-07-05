@@ -1,0 +1,49 @@
+Solution 1.
+class Solution {
+public:
+    int mySqrt(int x) 
+    {
+        if (x==0)
+        return 0;
+        int low=1,high=x,mid;
+        while(high-low>1)
+        {
+            mid=low+(high-low)/2;
+            if ((long long)mid*mid<=(long long)x)
+                low=mid;
+            else
+                high=mid;
+        }
+        return low;    
+
+    }
+};
+
+
+OR
+
+solution 2.
+
+class Solution {
+public:
+    int mySqrt(int x) 
+    {
+        long long temp=1,sum,i;
+        if(x==0 || x==1)
+        return x;
+        if(x==2 || x==3)
+        return temp;
+        for(i=2;i<=(x/2);i++)
+        {
+            sum=i*i;
+            if(sum>x)
+            break;
+            temp=i;
+        }
+         return temp;
+
+    }
+};
+
+
+
