@@ -1,0 +1,57 @@
+class Solution {
+public:
+ bool isValid(int i,int j,int n, int m, vector<vector<char>>& grid)
+    {
+        // Index Which we Traverse that is Valid or Not
+        if(i>=0 && i< n && j>=0 && j<m && grid[i][j]== '1')
+            return true;
+
+        return false;
+
+    }
+
+    // DFS Function
+    void numIslandsRec(int i, int j,int n,int m, vector<vector<char>>& grid)
+    {
+        grid[i][j]='0';// After Visiting Make It Zero to that cell
+        if(isValid(i+1,j,n,m,grid))
+        {
+            numIslandsRec(i+1,j,n,m,grid);
+        }
+         if(isValid(i-1,j,n,m,grid))
+        {
+            numIslandsRec(i-1,j,n,m,grid);
+        }
+         if(isValid(i,j+1,n,m,grid))
+        {
+            numIslandsRec(i,j+1,n,m,grid);
+        }
+         if(isValid(i,j-1,n,m,grid))
+        {
+            numIslandsRec(i,j-1,n,m,grid);
+        }
+
+    }
+
+    int numIslands(vector<vector<char>>& grid)
+    {
+        int n=grid.size();
+        int m=grid[0].size();
+        int ans=0;// ans=0 One Test Case Getting pass
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<m;j++)
+            {
+                if(grid[i][j]=='1')
+                {// if got The One Count ++
+                    ans++;  
+                numIslandsRec(i,j,n,m,grid);
+                }
+            }
+
+
+        }
+
+        return ans;
+    }
+};
