@@ -1,0 +1,24 @@
+class Solution {
+public:
+    bool isPalindrome(int x)
+    {
+        int i;
+        int j;
+        string str = to_string(x);
+        j=str.length()-1;
+        for(i=0;i<str.length();)
+        {
+            if(str[i]==str[j])
+            {
+                i++;
+                j--;
+            }
+            else
+            return 0;
+        }
+        return 1;
+
+
+        
+    }
+};
