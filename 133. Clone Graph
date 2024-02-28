@@ -1,0 +1,14 @@
+dict={}
+        def dfs(node):
+            if node in dict:
+                return dict[node]
+            copy=Node(node.val)
+            dict[node]=copy
+            for adj in node.neighbors:
+                copy.neighbors.append(dfs(adj))
+
+            return copy
+        if node:
+            return dfs(node)
+        else:
+            return None
